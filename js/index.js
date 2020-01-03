@@ -77,7 +77,6 @@ var colors = [{
 }];
 var svg = selectSVG('svg');
 var text = document.getElementById('text');
-console.log("text====>", text)
 var offscreenText = document.getElementById('offscreen-text');
 var input = document.getElementById('input');
 var button = document.getElementById('button');
