@@ -1,76 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新年许愿墙</title>
-<style>
-* {
-	margin: 0;
-	padding: 0;
-}
-body {
-	overflow: hidden;
-}
-</style>
-<link href="css/font.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style-search.css" media="screen" type="text/css" />
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>新年许愿墙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            overflow: hidden;
+        }
+    </style>
+    <link href="css/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-search.css" media="screen" type="text/css" />
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
 </head>
 
 <body>
-<canvas id="canvas" width="1280" height="1024"> 您的浏览器不支持canvas标签，请您更换浏览器 </canvas>
-<script src="js/word.js"></script>
-<p id="offscreen-text" class="offscreen-text"></p>
-<p id="text" class="text"></p>
-<!--<svg id="svg" > </svg>-->
+    <canvas id="canvas" width="1280" height="1024"> 您的浏览器不支持canvas标签，请您更换浏览器 </canvas>
+    <script src="js/word.js"></script>
+    <p id="offscreen-text" class="offscreen-text"></p>
+    <p id="text" class="text"></p>
+    <!-- <svg id="svg"> </svg> -->
 
-<div id="d" class="webdesigntuts-workshop"> <span>
-  <input class="input" id="input" type="search" placeholder="请输入您的愿望"/>
-  <button id="btn"
-  >去许愿</button>
-  </span> 
-</div>
-<div id="main">
-                
-</div>
+    <div id="d" class="webdesigntuts-workshop"> <span>
+			<input class="input" id="input" type="search" placeholder="请输入您的愿望" />
+			<button id="btn">去许愿</button>
+		</span>
+    </div>
+    <div id="main">
+
+    </div>
 
 
-<script  src='js/index.js'></script>
-<script type="text/javascript">
-	$(function(){
-		var pageH=parseInt($("#main").height());
-		var colorArr=["#cfaf12","#12af01","#981234","#adefsa","#db6be4","#f5264c","#d34a74"];                
-		$("#btn").bind("click",auto);
-		document.onkeydown=function(e){
-			if(e.keyCode == 13){
-				auto();
-			}
-		};
-		function auto(){
-			var $value = $("#input").val();
-			$("#main").append("<p>" + $value + "</p>");
-			// $("#input").val("");
-			var _top=parseInt(pageH*(Math.random()));
-			var num=parseInt(colorArr.length*(Math.random()));
-				$("p:last-child").css({"top":_top,"color":colorArr[num],"font-size":"20px"});
-				$("p:last-child").animate({"left":"-200px"},10000);
-				$("p:last-child").stop().animate({"left":"-300px"},10000,"linear",function(){
-					let self=this
-					function run(){
-						$(self).css({"top":_top,"left":"1000px","color":colorArr[num],"font-size":"20px"});
-						$(self).animate({"left":"-200px"},10000);
-						$(self).stop().animate({"left":"-300px"},10000,"linear",function(){
-							run()	
-						})
-						
-					}
-					run()	
-				});           
-		};
-		
-	})
-</script>
+    <script src='js/index.js'></script>
+    <script type="text/javascript">
+        $(function() {
+            var pageH = parseInt($("#main").height());
+            var colorArr = ["#cfaf12", "#12af01", "#981234", "#adefsa", "#db6be4", "#f5264c", "#d34a74"];
+            $("#btn").bind("click", auto);
+            document.onkeydown = function(e) {
+                if (e.keyCode == 13) {
+                    auto();
+                }
+            };
+
+            function auto() {
+                var $value = $("#input").val();
+                $("#main").append("<p>" + $value + "</p>");
+                // $("#input").val("");
+                var _top = parseInt(pageH * (Math.random()));
+                var num = parseInt(colorArr.length * (Math.random()));
+                $("p:last-child").css({
+                    "top": _top,
+                    "color": colorArr[num],
+                    "font-size": "20px"
+                });
+                $("p:last-child").animate({
+                    "left": "-200px"
+                }, 10000);
+                $("p:last-child").stop().animate({
+                    "left": "-300px"
+                }, 10000, "linear", function() {
+                    let self = this
+
+                    function run() {
+                        $(self).css({
+                            "top": _top,
+                            "left": "1000px",
+                            "color": colorArr[num],
+                            "font-size": "20px"
+                        });
+                        $(self).animate({
+                            "left": "-200px"
+                        }, 10000);
+                        $(self).stop().animate({
+                            "left": "-300px"
+                        }, 10000, "linear", function() {
+                            run()
+                        })
+
+                    }
+                    run()
+                });
+            };
+
+        })
+    </script>
 </body>
+
 </html>
